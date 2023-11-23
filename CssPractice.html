@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Login Form</title>
+    <style>
+        body {
+
+            background-image: url("https://www.freepik.com/free-vector/gradient-background-vector-spring-light-pink-green_15847305.html"); 
+            font-family: Arial, ;
+            text-align: left;
+            margin: 100;
+            padding: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+        }
+
+        form {
+            background-color: #ffa6a6; 
+            padding: 20px;
+            margin: 100;
+            border-radius: 30px;
+            width: 20%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #333;    
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+        }
+
+        .submit {
+            background-color: #4CAF50;  
+            color: white;
+            border: none;
+        }
+
+        
+
+        .password-field {
+            background-color: #ffeeee; 
+            border: 1px solid #ff9999; 
+            border-radius: 4px;
+            padding: 20px;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="/login" >
+        <h2>Login</h2>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="your email goes in here"required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="password-field" placeholder="your password goes in here" required>
+
+        <input type="submit" value="Login" class="submit">
+    </form>
+</body>
+</html>
