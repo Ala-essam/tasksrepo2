@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aly's Calculater Project</title>
+<style>
+    body{
+        display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 150px; 
+    }
+    table {
+            display: flex;
+            margin: 0 auto;
+            width: 50%;
+            height: 300px;
+            border-collapse: collapse;
+            font-family: arial, sans-serif;
+        }
+     td {
+    padding: 5px;
+    text-align: center;
+   }
+   input[type=text] {
+    width: 100%;
+    height: 50px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 3em;
+    font-weight: bold;
+    border-color: gray;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0.5;
+}
+input[type=button] {
+    opacity: 0.8;
+    background-color: #f5f5f5;
+    background-image: linear-gradient(top, #f5f5f5, #f1f1f1);
+    border: 1px solid #dedede;
+    color: #444;
+    height: 45px;
+    width: 65px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: normal;
+    cursor: pointer;
+}
+input[name=operator] {
+    border: 1px solid #c6c6c6;
+    background-color: #d6d6d6;
+}
+
+input[name=equal] {
+    background-color: #4d90fe;
+    border: 1px solid #2f5bb7;
+    color: #fefefe;
+}
+@media (max-width: 600px) {
+            table {
+                width: 90%;
+                display: flex;
+                height: 90%;
+            }
+        }
+
+
+
+
+
+
+</style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="7">
+                <input type="text" id="display" value=""  placeholder="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btnRad" type="button" name="operator" value="Rad" />
+            </td>
+            <td>
+                <input id="btnDeg" type="button" name="operator" value="deg" />
+            </td>
+            <td>
+                <input id="btnFact" type="button" name="operator" value="X!" onclick="fact()" />
+            </td>
+            <td>
+                <input id="btnLeft" type="button" name="operator" value="(" onclick="set('(')" />
+            </td>
+            <td>
+                <input id="btnRight" type="button" name="operator" value=")" onclick="set(')')" />
+            </td>
+            <td>
+                <input id="btnPercnt" type="button" name="operator" value="%" onclick="set('%')"/>
+            </td>
+            <td>
+                <input id="btnAC" type="button" name="operator" value="AC" onclick="ac()" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btnInv" type="button" name="operator" value="Inv" />
+            </td>
+            <td>
+                <input id="btnSine" type="button" name="operator" value="Sin" onclick="sine()" />
+            </td>
+            <td>
+                <input id="btnLn" type="button" name="operator" value="ln" />
+            </td>
+            <td>
+                <input id="btn7" type="button" value="7" onclick="set('7')" />
+            </td>
+            <td>
+                <input id="btn8" type="button" value="8" onclick="set('8')" />
+            </td>
+            <td>
+                <input id="btn9" type="button" value="9" onclick="set('9')" />
+            </td>
+            <td>
+                <input id="btnDiv" type="button" name="operator" value="÷" onclick="set('/')" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btnPi" type="button" name="operator" value="π" onclick="set('3.14')" />
+            </td>
+            <td>
+                <input id="btnCosine" type="button" name="operator" value="cos" onclick="cosine()" />
+            </td>
+            <td>
+                <input id="btnLog" type="button" name="operator" value="log" onclick="Log()" />
+            </td>
+            <td>
+                <input id="btn4" type="button" value="4" onclick="set('4')" />
+            </td>
+            <td>
+                <input id="btn5" type="button" value="5" onclick="set('5')" />
+            </td>
+            <td>
+                <input id="btn6" type="button" value="6" onclick="set('6')" />
+            </td>
+            <td>
+                <input id="btnMul" type="button" name="operator" value="×" onclick="set('*')" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btne" type="button" name="operator" value="e" onclick="set('2.71828182846')" />
+            </td>
+            <td>
+                <input id="btnTan" type="button" name="operator" value="tan" onclick="tangent()" />
+            </td>
+            <td>
+                <input id="btnSqrt" type="button" name="operator" value="√" onclick="sqrRoot()" />
+            </td>
+            <td>
+                <input id="btn1" type="button" value="1" onclick="set('1')" />
+            </td>
+            <td>
+                <input id="btn2" type="button" value="2" onclick="set('2')" />
+            </td>
+            <td>
+                <input id="btn3" type="button" value="3" onclick="set('3')" />
+            </td>
+            <td>
+                <input id="btnSub" type="button" name="operator" value="-" onclick="set('-')" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btnAns" type="button" name="operator" value="Ans" onclick="ans()"/>
+            </td>
+            <td>
+                <input id="btnExp" type="button" name="operator" value="EXP" onclick="exp()" />
+            </td>
+            <td>
+                <input id="btnPwr" type="button" name="operator" value="x^​y" onclick="set('^')" />
+            </td>
+            <td>
+                <input id="btn0" type="button" value="0" onclick="set('0')" />
+            </td>
+            <td>
+                <input id="btnPeriod" type="button" value="." onclick="dot()"/>
+            </td>
+            <td>
+                <input id="btnEqual" type="button" name="equal" value="=" onclick="answer()" />
+            </td>
+            <td>
+                <input id="btnAdd" type="button" name="operator" value="+" onclick="set('+')" />
+            </td>
+        </tr>
+    </table>
+    <script>
+        function ans() {
+            
+          
+    var currentExpression = document.getElementById("display").value;
+    currentExpression += ansValue; 
+    document.getElementById("display").value = currentExpression;
+
+}
+       
+       function set(d) {
+          document.getElementById("display").value += d;
+        }
+
+
+        function answer() {
+    var Exp = document.getElementById("display");
+    var Exp1 = Exp.value;
+    ansValue = eval(Exp1); 
+    Exp.value = ansValue;
+}
+    function sqrRoot() {
+        var m = document.getElementById("display").value;
+    ansValue = eval(Math.sqrt(m));
+    document.getElementById("display").value = ansValue;
+    
+    }
+    
+    function ac() {
+  document.getElementById("display").value = "0"; 
+}
+function fact() {
+    var n = document.getElementById("display").value;
+    let answer = 1;
+    if (n == 0 || n == 1) {
+        document.getElementById("display").value = answer;
+        ansValue = answer;
+        return answer;
+    } else if (n > 1) {
+        for (var i = n; i >= 1; i--) {
+            answer = answer * i;
+        }
+        document.getElementById("display").value = answer;
+        ansValue = answer;
+        return answer;
+    }
+}
+
+function cosine() {
+    var h = document.getElementById("display").value;
+    ansValue = eval(Math.cos(h));
+    document.getElementById("display").value = ansValue;
+}
+
+function Log() {
+    var e = document.getElementById("display").value;
+    ansValue = eval(Math.log(e));
+    document.getElementById("display").value = ansValue;
+}
+
+function tangent() {
+    var r = document.getElementById("display").value;
+    ansValue = eval(Math.tan(r));
+    document.getElementById("display").value = ansValue;
+}
+
+function dot() {
+    if (document.getElementById("display").value[document.getElementById("display").value.length - 1] != '.') {
+        document.getElementById("display").value = document.getElementById("display").value + ".";
+    } }
+function exp() {
+    var t = document.getElementById("display").value;
+    document.getElementById("display").value = eval(Math.exp(t));
+
+}
+
+
+    </script>
+   
+</body>
+    </html>

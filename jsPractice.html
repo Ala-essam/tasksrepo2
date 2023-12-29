@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Example</title>
+  <style>
+  
+  </style>
+</head>
+<body>
+  <div>
+    <button onclick="buttonPressed()">Click me</button>
+    <p id="test">Message</p>
+    <select onchange="obtionPicked()" id="selectOption">
+        <option value="JORDAN">JORDAN</option>
+        <option value="PALESTINE">PALESTINE</option>
+        <option value="SYRIA">SYRIA</option>
+    </select>
+
+    <script>
+      function buttonPressed() {
+        document.getElementById("test").innerHTML = "HELLO";
+      }
+      function obtionPicked() {
+        var selectedOption = document.getElementById("selectOption").value;
+        alert( selectedOption);
+      }
+    </script>
+  </div>
+</body>
+</html>
